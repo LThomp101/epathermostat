@@ -141,5 +141,6 @@ def mult_thermostat_driver(
 
     with ZipFile(zip_filepath, 'w') as certification_zip:
         for filename in files_to_zip:
-            if filename.exists():
-                certification_zip.write(filename, arcname=filename.name)
+            file_path = filename if isinstance(filename, Path) else Path(filename)
+            if file_path.exists()
+                certification_zip.write(str(file_path), arcname=file_path.name)
